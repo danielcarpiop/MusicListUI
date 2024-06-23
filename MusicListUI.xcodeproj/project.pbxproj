@@ -21,6 +21,8 @@
 		374F61BE2C263A40009DCDB7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61B02C263A40009DCDB7 /* HomeViewController.swift */; };
 		374F61BF2C263A40009DCDB7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61B12C263A40009DCDB7 /* TabBarController.swift */; };
 		374F61C32C26418B009DCDB7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 374F61C22C26418B009DCDB7 /* Kingfisher */; };
+		374F61C62C28CBF5009DCDB7 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61C52C28CBF5009DCDB7 /* SplashController.swift */; };
+		374F61C82C28CC16009DCDB7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61C72C28CC16009DCDB7 /* SplashViewController.swift */; };
 		37821D132C25F3C8007F79E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37821D122C25F3C8007F79E8 /* AppDelegate.swift */; };
 		37821D152C25F3C8007F79E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37821D142C25F3C8007F79E8 /* SceneDelegate.swift */; };
 		37821D172C25F3C8007F79E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37821D162C25F3C8007F79E8 /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		374F61AF2C263A40009DCDB7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		374F61B02C263A40009DCDB7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		374F61B12C263A40009DCDB7 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		374F61C52C28CBF5009DCDB7 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
+		374F61C72C28CC16009DCDB7 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		37821D0F2C25F3C8007F79E8 /* MusicListUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicListUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37821D122C25F3C8007F79E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37821D142C25F3C8007F79E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +182,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		374F61C42C28CBCB009DCDB7 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				374F61C52C28CBF5009DCDB7 /* SplashController.swift */,
+				374F61C72C28CC16009DCDB7 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		37821D062C25F3C7007F79E8 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 		37821D112C25F3C8007F79E8 /* MusicListUI */ = {
 			isa = PBXGroup;
 			children = (
+				374F61C42C28CBCB009DCDB7 /* Splash */,
 				374F61A72C263A40009DCDB7 /* Data */,
 				374F61A42C263A40009DCDB7 /* Domain */,
 				374F61A92C263A40009DCDB7 /* Network */,
@@ -380,11 +394,13 @@
 				374F619E2C25F550009DCDB7 /* UIColor+Ext.swift in Sources */,
 				374F61B62C263A40009DCDB7 /* ArtistListApi.swift in Sources */,
 				374F61BA2C263A40009DCDB7 /* HeaderInfoView.swift in Sources */,
+				374F61C62C28CBF5009DCDB7 /* SplashController.swift in Sources */,
 				374F61B32C263A40009DCDB7 /* Model.swift in Sources */,
 				374F61BB2C263A40009DCDB7 /* ArtistBaseViewController.swift in Sources */,
 				374F61BC2C263A40009DCDB7 /* ArtistDetailIViewController.swift in Sources */,
 				374F61BD2C263A40009DCDB7 /* FavoritesViewController.swift in Sources */,
 				37821D152C25F3C8007F79E8 /* SceneDelegate.swift in Sources */,
+				374F61C82C28CC16009DCDB7 /* SplashViewController.swift in Sources */,
 				37821D1D2C25F3C8007F79E8 /* MusicListUI.xcdatamodeld in Sources */,
 				374F61B52C263A40009DCDB7 /* ArtistListUseCase.swift in Sources */,
 				374F61B82C263A40009DCDB7 /* URLFactory.swift in Sources */,

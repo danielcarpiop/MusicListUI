@@ -19,8 +19,8 @@ class HeaderInfoView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .purple
         label.textAlignment = .left
+        label.textColor = .purple
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.text = "Listado de los TOP de iTunes"
