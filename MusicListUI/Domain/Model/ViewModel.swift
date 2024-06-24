@@ -1,4 +1,4 @@
-struct ViewModel: Hashable {
+struct ViewModel: Hashable, Codable{
     let name: String
     let releaseDate: String
     let rights: String

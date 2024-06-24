@@ -8,6 +8,8 @@
 import UIKit
 
 final class SplashViewController: UIViewController {
+    private let splashController = SplashController()
+    
     private lazy var viewContainer: UIImageView = {
         let image = UIImageView()
         image.image = .itunesLogo
@@ -17,6 +19,11 @@ final class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareSplash()
+        splashController.getArtistList()
+    }
+    
+    private func prepareSplash() {
         view.backgroundColor = .white
         view.addSubview(viewContainer)
         NSLayoutConstraint.activate([

@@ -7,10 +7,10 @@ enum CountryCode: String {
 }
 
 struct URLFactory {
-   func generateURL(with countryCode: CountryCode) -> URL {
+   func generateURL(with countryCode: CountryCode) throws -> URL {
         let urlString = String(format: "https://itunes.apple.com/%@/rss/topsongs/limit=10/json", countryCode.rawValue)
         guard let url = URL(string: urlString) else {
-            fatalError("Error trying to construct the country code")
+            throw RequestError.invalidURL
         }
         return url
     }

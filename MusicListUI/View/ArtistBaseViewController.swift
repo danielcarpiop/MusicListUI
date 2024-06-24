@@ -2,6 +2,7 @@ import UIKit
 
 class ArtistBaseViewController: UIViewController {
     let tableView = UITableView()
+    let headerTable = HeaderInfoView()
     let useCase = ArtistListUseCase(service: ArtistListApi())
     var artistViewModels: [ViewModel] = [] {
         didSet {
@@ -17,18 +18,27 @@ class ArtistBaseViewController: UIViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         tableView.refreshControl = refreshControl
+        navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = .white
     }
     
     private func setupViews() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(ArtistGlobalInfoCell.self, forCellReuseIdentifier: "cell")
-        view.addSubview(tableView)
         tableView.separatorColor = UIColor.purple
         
+        view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(headerTable)
+        headerTable.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerTable.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            headerTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerTable.bottomAnchor.constraint(equalTo: tableView.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -57,11 +67,6 @@ extension ArtistBaseViewController: UITableViewDelegate, UITableViewDataSource {
         let viewModel = artistViewModels[indexPath.row]
         cell.configure(title: viewModel.name, subtitle: viewModel.releaseDate, imgURL: viewModel.imageUrl)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = HeaderInfoView()
-        return headerView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

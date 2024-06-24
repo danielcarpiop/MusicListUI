@@ -1,8 +1,6 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    private let useCase = ArtistListUseCase(service: ArtistListApi())
-    var artistViewModels: [ViewModel] = []
     private let homeViewController = HomeViewController()
     private let favoritesViewController = FavoritesViewController()
     

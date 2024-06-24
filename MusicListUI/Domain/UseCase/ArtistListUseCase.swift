@@ -7,16 +7,10 @@ final class ArtistListUseCase {
         self.service = service
     }
     
-    func getList(countryCode: CountryCode, completion: @escaping (Result<[ViewModel], Error>) -> Void) {
-        service.getList(countryCode: countryCode) { result in
-            switch result {
-            case .success(let model):
-                let viewModels = mapModelToViewModel(model: model)
-                completion(.success(viewModels))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getList(countryCode: CountryCode) async throws -> [ViewModel] {
+        let model = try await service.getList(countryCode: countryCode)
+        let viewModels = mapModelToViewModel(model: model)
+        return viewModels
     }
 }
 
