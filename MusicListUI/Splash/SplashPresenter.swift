@@ -1,17 +1,10 @@
-//
-//  SplashController.swift
-//  MusicListUI
-//
-//  Created by Daniel Carpio on 23-06-24.
-//
-
 import UIKit
 
-protocol SplashControllerProtocol: AnyObject {
+protocol SplashPresenterProtocol: AnyObject {
     func getArtistList()
 }
 
-final class SplashController: SplashControllerProtocol {
+final class SplashPresenter: SplashPresenterProtocol {
     private let useCase = ArtistListUseCase(service: ArtistListApi())
     
     func getArtistList() {

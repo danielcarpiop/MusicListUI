@@ -2,7 +2,9 @@ import UIKit
 import Kingfisher
 
 class ArtistDetailIViewController: UIViewController {
+    weak var delegate: ArtistDetailDelegate?
     private let viewModel: ViewModel
+    private let viewControllerCaller: UIViewController
     private var isFav: Bool {
         didSet {
             let starColor = isFav ? UIImage(resource: .goldenStar) : UIImage(resource: .fullStar)
@@ -87,20 +89,34 @@ class ArtistDetailIViewController: UIViewController {
     
     private let sample = UIButton(frame: .zero)
     
-    init(viewModel: ViewModel) {
+//    init(viewModel: ViewModel, viewControllerCaller: UIViewController) {
+//        self.viewModel = viewModel
+//        self.viewControllerCaller = viewControllerCaller
+//        let array = UserDefaults.standard.array(forKey: "SongID") as? [String] ?? []
+//        self.isFav = array.contains(viewModel.id)
+//        super.init(nibName: nil, bundle: nil)
+//        let starColor = isFav ? UIImage(resource: .goldenStar) : UIImage(resource: .fullStar)
+//        favorites.setImage(starColor, for: .normal)
+//        prepare()
+//    }
+    
+    init(viewModel: ViewModel, viewControllerCaller: UIViewController) {
         self.viewModel = viewModel
-        let array = UserDefaults.standard.array(forKey: "SongID") as? [String] ?? []
-        self.isFav = array.contains(viewModel.id)
+        self.viewControllerCaller = viewControllerCaller
+        self.isFav = false
         super.init(nibName: nil, bundle: nil)
-        let starColor = isFav ? UIImage(resource: .goldenStar) : UIImage(resource: .fullStar)
-        favorites.setImage(starColor, for: .normal)
+        setupStar()
         prepare()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let array = UserDefaults.standard.array(forKey: "SongID") as? [String] ?? []
-        self.isFav = array.contains(viewModel.id)
+        setupStar()
+    }
+    
+    func setupStar() {
+        let favoritesList: [ViewModel] = LocalStorage.shared.retrieve(forKey: "FavoritesList", as: [ViewModel].self) ?? []
+        self.isFav = favoritesList.contains(where: { $0.id == viewModel.id })
         let starColor = isFav ? UIImage(resource: .goldenStar) : UIImage(resource: .fullStar)
         favorites.setImage(starColor, for: .normal)
     }
@@ -117,6 +133,11 @@ class ArtistDetailIViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        delegate?.artistDetailReload(self, viewControllerCaller: viewControllerCaller)
+    }
+        
     private func prepare() {
         view.addSubview(blurView)
         blurView.contentView.addSubview(viewContainer)
@@ -176,16 +197,17 @@ class ArtistDetailIViewController: UIViewController {
     }
     
     @objc private func toggleStar() {
-        var array = UserDefaults.standard.array(forKey: "SongID") as? [String] ?? []
-        if let index = array.firstIndex(of: viewModel.id) {
-            array.remove(at: index)
+        var favorites: [ViewModel] = LocalStorage.shared.retrieve(forKey: "FavoritesList", as: [ViewModel].self) ?? []
+        
+        if let index = favorites.firstIndex(where: {$0.id == viewModel.id}) {
+            favorites.remove(at: index)
             isFav = false
         } else {
-            array.append(viewModel.id)
+            favorites.append(viewModel)
             isFav = true
         }
-        UserDefaults.standard.set(array, forKey: "SongID")
-        NotificationCenter.default.post(name: NSNotification.Name("FavoritesUpdated"), object: nil)
+        
+        LocalStorage.shared.set(favorites, forKey: "FavoritesList")
     }
 }
 
@@ -194,7 +216,6 @@ extension ArtistDetailIViewController {
         let location = sender.location(in: view)
         if !viewContainer.frame.contains(location) {
             dismiss(animated: true, completion: nil)
-            NotificationCenter.default.post(name: NSNotification.Name("DismissDetail"), object: nil)
         }
     }
 }

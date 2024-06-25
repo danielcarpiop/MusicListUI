@@ -3,7 +3,6 @@ import UIKit
 class ArtistBaseViewController: UIViewController {
     let tableView = UITableView()
     let headerTable = HeaderInfoView()
-    let useCase = ArtistListUseCase(service: ArtistListApi())
     var artistViewModels: [ViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -15,9 +14,6 @@ class ArtistBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        tableView.refreshControl = refreshControl
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
     }
@@ -44,15 +40,6 @@ class ArtistBaseViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-    private func navigateToDetail(viewModel: ViewModel) {
-        navigationController?.present(ArtistDetailIViewController(viewModel: viewModel), animated: true)
-    }
-    
-    @objc private func refreshData(_ sender: UIRefreshControl) {
-        tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
-    }
 }
 
 extension ArtistBaseViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,10 +58,48 @@ extension ArtistBaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedViewModel = artistViewModels[indexPath.row]
-        let detailViewController = ArtistDetailIViewController(viewModel: selectedViewModel)
+        let detailViewController = ArtistDetailIViewController(viewModel: selectedViewModel, viewControllerCaller: self)
         detailViewController.modalPresentationStyle = .overFullScreen
         detailViewController.modalTransitionStyle = .crossDissolve
-        navigationController?.present(detailViewController, animated: false)
+        detailViewController.delegate = self
+        present(detailViewController, animated: false)
     }
 }
 
+extension ArtistBaseViewController: ArtistDetailDelegate {
+    func artistDetailReload(_ viewController: ArtistDetailIViewController, viewControllerCaller: UIViewController) {
+        artistRetrieveList(viewControllerCaller)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func artistRetrieveList(_ from: UIViewController) {
+        switch from {
+        case is HomeViewController:
+            artistViewModels = LocalStorage.shared.retrieve(forKey: "ArtistList", as: [ViewModel].self) ?? []
+        case is FavoritesViewController:
+            artistViewModels = LocalStorage.shared.retrieve(forKey: "FavoritesList", as: [ViewModel].self) ?? []
+        default:
+            break
+        }
+    }
+    
+//    func retrieveArtistList(forKey key: String) {
+//        if let savedData = UserDefaults.standard.data(forKey: "ArtistList") {
+//            let decoder = JSONDecoder()
+//            if let decodedResults = try? decoder.decode([ViewModel].self, from: savedData) {
+//                artistViewModels = decodedResults
+//            } else {
+//                print("Failed to decode results")
+//            }
+//        }
+//    }
+    
+//    private func passDataToBase(viewModels: [ViewModel]) {
+//        let filteredModel = Set(viewModels)
+//        if let favoriteIDs = UserDefaults.standard.array(forKey: "SongID") as? [String] {
+//            artistViewModels = filteredModel.filter { favoriteIDs.contains($0.id) }
+//        }
+//    }
+}

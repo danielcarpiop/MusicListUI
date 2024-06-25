@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  MusicListUI
-//
-//  Created by Daniel Carpio on 21-06-24.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

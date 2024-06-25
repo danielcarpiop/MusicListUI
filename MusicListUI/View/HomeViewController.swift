@@ -1,29 +1,23 @@
 import UIKit
 
-final class HomeViewController: ArtistBaseViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsChange), name: UserDefaults.didChangeNotification, object: nil)
-    }
-    
+final class HomeViewController: ArtistBaseViewController {    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.retrieveArtistList()
-    }
-    
-    @objc private func handleUserDefaultsChange() {
-        retrieveArtistList()
-    }
-    
-    func retrieveArtistList() {
-        if let savedData = UserDefaults.standard.data(forKey: "ArtistList") {
-            let decoder = JSONDecoder()
-            if let decodedResults = try? decoder.decode([ViewModel].self, from: savedData) {
-                artistViewModels = decodedResults
-            } else {
-                print("Failed to decode results")
-            }
+        self.artistRetrieveList(self)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
+    
+//    func retrieveArtistListHome() {
+//        if let savedData = UserDefaults.standard.data(forKey: "ArtistList") {
+//            let decoder = JSONDecoder()
+//            if let decodedResults = try? decoder.decode([ViewModel].self, from: savedData) {
+//                artistViewModels = decodedResults
+//            } else {
+//                print("Failed to decode results")
+//            }
+//        }
+//    }
 }
 

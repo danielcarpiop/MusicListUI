@@ -21,11 +21,13 @@
 		374F61BE2C263A40009DCDB7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61B02C263A40009DCDB7 /* HomeViewController.swift */; };
 		374F61BF2C263A40009DCDB7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61B12C263A40009DCDB7 /* TabBarController.swift */; };
 		374F61C32C26418B009DCDB7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 374F61C22C26418B009DCDB7 /* Kingfisher */; };
-		374F61C62C28CBF5009DCDB7 /* SplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61C52C28CBF5009DCDB7 /* SplashController.swift */; };
+		374F61C62C28CBF5009DCDB7 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61C52C28CBF5009DCDB7 /* SplashPresenter.swift */; };
 		374F61C82C28CC16009DCDB7 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61C72C28CC16009DCDB7 /* SplashViewController.swift */; };
+		374F61CB2C2B2CFE009DCDB7 /* ArtistDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61CA2C2B2CFE009DCDB7 /* ArtistDetailDelegate.swift */; };
+		374F61CE2C2B335E009DCDB7 /* ArtistBasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61CD2C2B335E009DCDB7 /* ArtistBasePresenter.swift */; };
+		374F61D02C2B461B009DCDB7 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374F61CF2C2B461B009DCDB7 /* LocalStorage.swift */; };
 		37821D132C25F3C8007F79E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37821D122C25F3C8007F79E8 /* AppDelegate.swift */; };
 		37821D152C25F3C8007F79E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37821D142C25F3C8007F79E8 /* SceneDelegate.swift */; };
-		37821D172C25F3C8007F79E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37821D162C25F3C8007F79E8 /* ViewController.swift */; };
 		37821D1A2C25F3C8007F79E8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37821D192C25F3C8007F79E8 /* Base */; };
 		37821D1D2C25F3C8007F79E8 /* MusicListUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37821D1B2C25F3C8007F79E8 /* MusicListUI.xcdatamodeld */; };
 		37821D1F2C25F3C8007F79E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37821D1E2C25F3C8007F79E8 /* Assets.xcassets */; };
@@ -66,12 +68,14 @@
 		374F61AF2C263A40009DCDB7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		374F61B02C263A40009DCDB7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		374F61B12C263A40009DCDB7 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		374F61C52C28CBF5009DCDB7 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
+		374F61C52C28CBF5009DCDB7 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		374F61C72C28CC16009DCDB7 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		374F61CA2C2B2CFE009DCDB7 /* ArtistDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailDelegate.swift; sourceTree = "<group>"; };
+		374F61CD2C2B335E009DCDB7 /* ArtistBasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBasePresenter.swift; sourceTree = "<group>"; };
+		374F61CF2C2B461B009DCDB7 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		37821D0F2C25F3C8007F79E8 /* MusicListUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicListUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37821D122C25F3C8007F79E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37821D142C25F3C8007F79E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37821D162C25F3C8007F79E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37821D192C25F3C8007F79E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37821D1C2C25F3C8007F79E8 /* MusicListUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicListUI.xcdatamodel; sourceTree = "<group>"; };
 		37821D1E2C25F3C8007F79E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,9 +176,9 @@
 		374F61B22C263A40009DCDB7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				374F61CC2C2B3338009DCDB7 /* ArtistBase */,
+				374F61C92C2B2CDE009DCDB7 /* ArtistDetail */,
 				374F61AC2C263A40009DCDB7 /* Components */,
-				374F61AD2C263A40009DCDB7 /* ArtistBaseViewController.swift */,
-				374F61AE2C263A40009DCDB7 /* ArtistDetailIViewController.swift */,
 				374F61AF2C263A40009DCDB7 /* FavoritesViewController.swift */,
 				374F61B02C263A40009DCDB7 /* HomeViewController.swift */,
 				374F61B12C263A40009DCDB7 /* TabBarController.swift */,
@@ -185,10 +189,36 @@
 		374F61C42C28CBCB009DCDB7 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				374F61C52C28CBF5009DCDB7 /* SplashController.swift */,
+				374F61C52C28CBF5009DCDB7 /* SplashPresenter.swift */,
 				374F61C72C28CC16009DCDB7 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		374F61C92C2B2CDE009DCDB7 /* ArtistDetail */ = {
+			isa = PBXGroup;
+			children = (
+				374F61AE2C263A40009DCDB7 /* ArtistDetailIViewController.swift */,
+				374F61CA2C2B2CFE009DCDB7 /* ArtistDetailDelegate.swift */,
+			);
+			path = ArtistDetail;
+			sourceTree = "<group>";
+		};
+		374F61CC2C2B3338009DCDB7 /* ArtistBase */ = {
+			isa = PBXGroup;
+			children = (
+				374F61AD2C263A40009DCDB7 /* ArtistBaseViewController.swift */,
+				374F61CD2C2B335E009DCDB7 /* ArtistBasePresenter.swift */,
+			);
+			path = ArtistBase;
+			sourceTree = "<group>";
+		};
+		374F61D12C2B4634009DCDB7 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				374F61CF2C2B461B009DCDB7 /* LocalStorage.swift */,
+			);
+			path = LocalStorage;
 			sourceTree = "<group>";
 		};
 		37821D062C25F3C7007F79E8 = {
@@ -214,6 +244,7 @@
 		37821D112C25F3C8007F79E8 /* MusicListUI */ = {
 			isa = PBXGroup;
 			children = (
+				374F61D12C2B4634009DCDB7 /* LocalStorage */,
 				374F61C42C28CBCB009DCDB7 /* Splash */,
 				374F61A72C263A40009DCDB7 /* Data */,
 				374F61A42C263A40009DCDB7 /* Domain */,
@@ -222,7 +253,6 @@
 				374F619D2C25F550009DCDB7 /* Extensions */,
 				37821D122C25F3C8007F79E8 /* AppDelegate.swift */,
 				37821D142C25F3C8007F79E8 /* SceneDelegate.swift */,
-				37821D162C25F3C8007F79E8 /* ViewController.swift */,
 				37821D182C25F3C8007F79E8 /* Main.storyboard */,
 				37821D1E2C25F3C8007F79E8 /* Assets.xcassets */,
 				37821D202C25F3C8007F79E8 /* LaunchScreen.storyboard */,
@@ -386,7 +416,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37821D172C25F3C8007F79E8 /* ViewController.swift in Sources */,
 				374F61B92C263A40009DCDB7 /* ArtistGlobalInfoCell.swift in Sources */,
 				37821D132C25F3C8007F79E8 /* AppDelegate.swift in Sources */,
 				374F61BF2C263A40009DCDB7 /* TabBarController.swift in Sources */,
@@ -394,12 +423,15 @@
 				374F619E2C25F550009DCDB7 /* UIColor+Ext.swift in Sources */,
 				374F61B62C263A40009DCDB7 /* ArtistListApi.swift in Sources */,
 				374F61BA2C263A40009DCDB7 /* HeaderInfoView.swift in Sources */,
-				374F61C62C28CBF5009DCDB7 /* SplashController.swift in Sources */,
+				374F61C62C28CBF5009DCDB7 /* SplashPresenter.swift in Sources */,
 				374F61B32C263A40009DCDB7 /* Model.swift in Sources */,
 				374F61BB2C263A40009DCDB7 /* ArtistBaseViewController.swift in Sources */,
 				374F61BC2C263A40009DCDB7 /* ArtistDetailIViewController.swift in Sources */,
+				374F61CB2C2B2CFE009DCDB7 /* ArtistDetailDelegate.swift in Sources */,
+				374F61D02C2B461B009DCDB7 /* LocalStorage.swift in Sources */,
 				374F61BD2C263A40009DCDB7 /* FavoritesViewController.swift in Sources */,
 				37821D152C25F3C8007F79E8 /* SceneDelegate.swift in Sources */,
+				374F61CE2C2B335E009DCDB7 /* ArtistBasePresenter.swift in Sources */,
 				374F61C82C28CC16009DCDB7 /* SplashViewController.swift in Sources */,
 				37821D1D2C25F3C8007F79E8 /* MusicListUI.xcdatamodeld in Sources */,
 				374F61B52C263A40009DCDB7 /* ArtistListUseCase.swift in Sources */,

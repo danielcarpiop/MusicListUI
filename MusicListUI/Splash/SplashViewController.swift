@@ -1,14 +1,7 @@
-//
-//  SplashViewController.swift
-//  MusicListUI
-//
-//  Created by Daniel Carpio on 23-06-24.
-//
-
 import UIKit
 
 final class SplashViewController: UIViewController {
-    private let splashController = SplashController()
+    private let splashController = SplashPresenter()
     
     private lazy var viewContainer: UIImageView = {
         let image = UIImageView()
